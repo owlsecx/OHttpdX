@@ -18,7 +18,7 @@
 
 ## 📌 Overview
 
-Offline Apache / Nginx / Caddy web-server configuration auditor
+OHttpdX — Web-Server Configuration Auditor. It provides offline, read-only parsers: Apache (sections, Include globs, ServerRoot), nginx (token stream, include, inheritance), Caddy (global, sites, snippets, import); Auto-discovery under a root with chroot-style rebasing. Built-in demo/self-test paths and severity gates help validate detections without touching production when those flags are used.
 
 ---
 
@@ -28,6 +28,7 @@ Offline Apache / Nginx / Caddy web-server configuration auditor
 - Auto-discovery under a root with chroot-style rebasing
 - 31 rules mapped to CWE + OWASP Top 10 (2021) with severity, file:line evidence and remediation
 - Score / grade, TXT · MD · JSON · CSV · SARIF exports, CI gating (--min-severity / --fail-on), --demo self-test
+- Filesystem root to discover under / rebase absolute include paths onto
 
 ---
 
@@ -41,7 +42,10 @@ Offline Apache / Nginx / Caddy web-server configuration auditor
 ## 🚀 Usage
 
 ```bash
-./OHttpdX
+./OHttpdX                                     # interactive menu
+./OHttpdX --scan -r /path/to/root
+./OHttpdX --demo
+./OHttpdX --help
 ```
 
 ---
